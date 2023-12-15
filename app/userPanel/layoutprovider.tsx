@@ -1,11 +1,10 @@
 "use client";
-import Header from "@/components/Header/Header";
+import UserPanelHeader from "@/components/UserPanel/UserPanelHeader";
 import { usePathname } from "next/navigation";
 
 export const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
   const excludeHeaderFooterRoutes = [
-    "/userPanel",
     "/userPanel/Profile/Reservation",
     "/userPanel/Profile/ChatRoom",
     "/userPanel/Profile/MyCase",
@@ -13,7 +12,7 @@ export const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <>
-      {!excludeHeaderFooterRoutes.includes(pathname) && <Header />}
+      {!excludeHeaderFooterRoutes.includes(pathname) && <UserPanelHeader />}
 
       {children}
 
