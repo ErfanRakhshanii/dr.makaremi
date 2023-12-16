@@ -11,15 +11,15 @@ export default function ProfileHeader() {
   const pathName = usePathname();
 
   return (
-    <main className="max-w-[1440px] w-full h-[130px] flex items-center justify-between bg-white">
+    <main className="max-w-[1440px] w-[1298px] h-[130px] flex items-center justify-between bg-white">
       {/* RIGHT TAB */}
-      <div className="h-[75px] w-[240px] flex items-center justify-center">
+      <div className="h-[75px] w-[200px] flex items-center">
         <Link href={"/"}>
           <Image src={MakaremiLogo} alt="Makaremi Logo" />
         </Link>
       </div>
       {/* CENTER TABS */}
-      <div className="h-[75px] w-[400px] flex items-center justify-between">
+      <div className="h-[75px] w-[376px] flex items-center justify-between gap-[8px]">
         <div className="h-[44px] w-[61px] flex items-center justify-center">
           <Link href={"/"}>
             <p className="text-base font-medium cursor-pointer text-black">
