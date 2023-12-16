@@ -22,8 +22,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: var(--White, #FFF);
+  background: var(--White, #fff);
   direction: rtl;
-  color: var(--green-04, #064247);
   overflow-x: hidden;
 }

@@ -14,9 +14,7 @@ export const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       {!excludeHeaderFooterRoutes.includes(pathname) && <Header />}
-
       {children}
-
       {!excludeHeaderFooterRoutes.includes(pathname)}
     </>
   );

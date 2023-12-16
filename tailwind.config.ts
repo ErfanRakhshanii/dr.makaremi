@@ -15,7 +15,8 @@ const config: Config = {
       indigo: "indigo",
       red: "red",
       yellow: "amber",
-      green: "#45CBC2"
+      green: "#45CBC2",
+      hardgreen: "#064247",
     },
     extend: {
       backgroundImage: {
@@ -24,8 +25,8 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
-        sansR: ['var(--sansR)', 'serif'],
-      }
+        sansR: ["var(--sansR)", "serif"],
+      },
     },
   },
   plugins: [],
