@@ -1,7 +1,10 @@
-import React from 'react'
+import ReservationPage from "@/components/UserPanel/Profile/Reservation/Reservation";
+import React from "react";
 
 export default function Reservation() {
   return (
-    <div>Reservation</div>
-  )
+    <main className="max-w-[1440px] w-full h-[83vh]">
+      <ReservationPage />
+    </main>
+  );
 }
