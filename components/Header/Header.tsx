@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import MakaremiLogo from "../../public/Assets/Images/LandingPage/MakaremiLogo.png";
+import makaremiLogo from "../../public/Asset/Images/Header/MakaremiLogo.webp";
 
 export default function Header() {
   return (
@@ -8,7 +8,7 @@ export default function Header() {
       <div className="w-full h-[75px] flex items-center gap-[155.5px] ">
         <div className="w-68px h-full">
           <Link href={"/"}>
-            <Image src={MakaremiLogo} alt="MakareminLogo"></Image>
+            <Image src={makaremiLogo} alt="MakareminLogo"></Image>
           </Link>
         </div>
         <ul className="w-695 h-full flex items-center gap-[8px] text-[16px] font-medium">
