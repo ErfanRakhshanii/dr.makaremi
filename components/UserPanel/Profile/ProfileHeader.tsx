@@ -44,7 +44,8 @@ export default function ProfileHeader() {
           <Link href={"/userPanel/Profile/Reservation"}>
             <p
               className={`text-base font-medium cursor-pointer ${
-                pathName === "/userPanel/Profile/Reservation"
+                pathName === "/userPanel/Profile/Reservation" ||
+                "/userPanel/Profile/Reservation/Complete"
                   ? "text-[#288E87]"
                   : "text-black"
               }`}
