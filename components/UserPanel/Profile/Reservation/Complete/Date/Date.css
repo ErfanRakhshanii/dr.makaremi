@@ -1,0 +1,85 @@
+.rmdp-shadow {
+  box-shadow: none !important;
+}
+
+.rmdp-wrapper {
+  height: 520px;
+  min-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rmdp-calendar {
+  height: 100% !important;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.rmdp-day span {
+  background-color: #d6f3f1 !important;
+  min-height: 59px;
+  min-width: 60px;
+  border-radius: 15px !important;
+}
+
+.rmdp-day span:hover {
+  color: unset !important;
+}
+
+.rmdp-day,
+.rmdp-week-day {
+  min-height: 70px;
+  min-width: 70px;
+}
+
+.rmdp-day.rmdp-today span {
+  background-color: white !important;
+  color: #064247 !important;
+  border: 2px solid #d6f3f1 !important;
+}
+
+.rmdp-arrow {
+  min-height: 7px;
+  min-width: 7px;
+  border: 1px solid #064247 !important;
+  border-width: 0 2px 2px 0 !important;
+}
+
+.rmdp-week-day {
+  color: #064247 !important;
+}
+
+.rmdp-day-hidden.rmdp-day span {
+  background-color: white !important;
+}
+
+.rmdp-arrow-container:hover {
+  background-color: unset !important;
+  box-shadow: unset !important;
+}
+
+.rmdp-header {
+  width: 173px !important;
+  height: 42px !important;
+  margin-top: unset !important;
+}
+
+.rmdp-day.rmdp-deactive span {
+  background-color: unset !important;
+  color: #83dcd6 !important;
+}
+
+.rmdp-header-values span {
+  color: #064247 !important;
+}
+
+.rmdp-day.rmdp-selected span:not(.highlight) {
+  color: black !important;
+  box-shadow: unset !important;
+  background-color: #45CBC2 !important;
+  border: unset !important;
+}
