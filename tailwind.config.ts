@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-
+import kir from "./public/Assets/Images/Footer/FooterBackGround.webp"
 const config: Config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -11,7 +11,7 @@ const config: Config = {
       blue: "blue",
       black: "black",
       white: "white",
-      gray: "trueGray",
+      gray: "trueGray", 
       indigo: "indigo",
       red: "red",
       yellow: "amber",
@@ -22,7 +22,7 @@ const config: Config = {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
         sansR: ["var(--sansR)", "serif"],
