@@ -9,7 +9,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/components/Redux/Store";
 import {
   addPerson,
-  fillInputs,
   getCity,
   getCode,
   getFristName,
@@ -27,9 +26,9 @@ export default function ReservationPage() {
   return (
     <div
       className="max-w-[1440px] h-full w-full flex flex-col"
-      onClick={() => {
-        setOpen(false);
-      }}
+      // onClick={() => {
+      //   setOpen(false);
+      // }}
     >
       <div className="w-full h-[100px] flex items-center justify-center">
         <div className="h-[54px] w-[1002px] flex items-center justify-center gap-[30px]">
@@ -49,7 +48,7 @@ export default function ReservationPage() {
           </div>
           <div className="h-[31px] w-[115px] flex items-center justify-around">
             <div
-              className="w-[88px] h-full flex items-center justify-between"
+              className="w-[88px] h-full flex items-center justify-between cursor-pointer"
               onClick={() => {
                 setOpen(!open);
               }}
@@ -63,13 +62,14 @@ export default function ReservationPage() {
                 alt="Arrow Down"
               />
               <div
-                className={`absolute flex flex-col items-center justify-center gap-[15px] z-10 h-fit w-[148px] bg-[#EDEDEE] rounded-2xl top-[240px] left-[395px] ${
+                className={`absolute flex flex-col items-center justify-center gap-[10px] z-10 h-fit w-[148px] bg-[#EDEDEE] rounded-2xl top-[240px] left-[395px] ${
                   open ? "flex" : "hidden"
                 }`}
               >
                 {select.person.map((item, index) => {
                   return (
                     <div
+                      key={index}
                       className="cursor-pointer m-1"
                       onClick={() => {
                         dispatch(getSelectedPerson(item));
