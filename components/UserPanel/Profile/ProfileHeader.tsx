@@ -20,19 +20,19 @@ export default function ProfileHeader() {
       </div>
       {/* CENTER TABS */}
       <div className="h-[75px] w-[376px] flex items-center justify-between gap-[8px]">
-        <div className="h-[44px] w-[61px] flex items-center justify-center">
+        <div className="h-[44px] w-[61px] flex items-center justify-center rounded-lg hover:bg-green">
           <Link href={"/"}>
             <p className="text-base font-medium cursor-pointer text-black">
               خانه
             </p>
           </Link>
         </div>
-        <div className="h-[44px] w-[104px] flex items-center justify-center">
+        <div className="h-[44px] w-[104px] flex items-center justify-center rounded-lg hover:bg-green">
           <Link href={"/userPanel/Profile/MyCase"}>
             <p
               className={`text-base font-medium cursor-pointer ${
                 pathName === "/userPanel/Profile/MyCase"
-                  ? "text-green"
+                  ? "text-[#288E87]"
                   : "text-black"
               }`}
             >
@@ -40,12 +40,13 @@ export default function ProfileHeader() {
             </p>
           </Link>
         </div>
-        <div className="h-[44px] w-[128px] flex items-center justify-center">
+        <div className="h-[44px] w-[128px] flex items-center justify-center rounded-lg hover:bg-green">
           <Link href={"/userPanel/Profile/Reservation"}>
             <p
               className={`text-base font-medium cursor-pointer ${
-                pathName === "/userPanel/Profile/Reservation"
-                  ? "text-green"
+                pathName === "/userPanel/Profile/Reservation" ||
+                "/userPanel/Profile/Reservation/Complete"
+                  ? "text-[#288E87]"
                   : "text-black"
               }`}
             >
@@ -53,12 +54,12 @@ export default function ProfileHeader() {
             </p>
           </Link>
         </div>
-        <div className="h-[44px] w-[128px] flex items-center justify-center">
+        <div className="h-[44px] w-[128px] flex items-center justify-center rounded-lg hover:bg-green">
           <Link href={"/userPanel/Profile/ChatRoom"}>
             <p
               className={`text-base font-medium cursor-pointer ${
                 pathName === "/userPanel/Profile/ChatRoom"
-                  ? "text-green"
+                  ? "text-[#288E87]"
                   : "text-black"
               }`}
             >

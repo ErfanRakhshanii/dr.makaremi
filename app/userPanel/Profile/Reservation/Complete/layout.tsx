@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import "../../globals.css";
-import ProfileHeader from "@/components/UserPanel/Profile/ProfileHeader";
-import { LayoutProvider } from "./layoutprovider";
+import "../../../../globals.css";
+import CompleteHeader from "@/components/UserPanel/Profile/Reservation/Complete/CompleteHeader/CompleteHeader";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +15,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <LayoutProvider>{children}</LayoutProvider>
+        <CompleteHeader />
+        {children}
       </body>
     </html>
   );

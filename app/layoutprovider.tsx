@@ -9,6 +9,9 @@ export const LayoutProvider = ({ children }: { children: React.ReactNode }) => {
     "/userPanel/Profile/Reservation",
     "/userPanel/Profile/ChatRoom",
     "/userPanel/Profile/MyCase",
+    "/userPanel/Profile/Reservation/Complete",
+    "/userPanel/Profile/Reservation/Complete/Date",
+    "/userPanel/Profile/Reservation/Complete/Payment",
   ];
 
   return (
