@@ -3,8 +3,8 @@ import Link from "next/link";
 import makaremiLogo from "../../public/Assets/Images/Header/MakaremiLogo.webp";
 
 export default function Header() {
-  return (
-    <main className="max-w-[1223px] w-full h-[107px]  flex items-end justify-center fixed z-50 ">
+  return ( 
+    <main className="max-w-[1223px] w-full h-[107px]  flex items-end justify-center fixed z-50">
       <div className="w-full h-[75px] flex items-center gap-[155.5px] ">
         {/* //////////Right////////// */}
         <div className="w-68px h-full">
