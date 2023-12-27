@@ -19,7 +19,7 @@ import {
 export default function ReservationPage() {
   const dispatch = useDispatch();
 
-  const select = useSelector((state: RootState) => state.MakaremiReducer);
+  const select = useSelector((state: RootState) => state);
 
   const [open, setOpen] = useState(false);
 

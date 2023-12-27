@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/components/Redux/Store";
 
 export default function PaymentPage() {
-  const select = useSelector((state: RootState) => state.MakaremiReducer);
+  const select = useSelector((state: RootState) => state);
 
   return (
     <div className="max-w-[1440px] h-full w-full flex items-center justify-center">

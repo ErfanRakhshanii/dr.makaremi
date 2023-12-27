@@ -14,8 +14,9 @@ import {
 } from "@/components/Redux/Slice";
 
 export default function DatePage() {
-  const select = useSelector((state: RootState) => state.MakaremiReducer);
+  const select = useSelector((state: RootState) => state);
   const dispatch = useDispatch();
+  console.log('aaa',select);
 
   return (
     <div className="max-w-[1440px] h-full w-full flex items-center justify-center">
@@ -52,7 +53,7 @@ export default function DatePage() {
             انتخاب ساعت
           </div>
           <div className="h-[119px] w-[263px] flex items-center justify-center gap-2 flex-wrap">
-            {select.time && select.time.map((item, index) => {
+            {select.time.map((item, index) => {
               return (
                 <div
                   key={index}
