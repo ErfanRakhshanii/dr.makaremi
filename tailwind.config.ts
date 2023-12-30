@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-import kir from "./public/Assets/Images/Footer/FooterBackGround.webp"
 const config: Config = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -17,6 +16,7 @@ const config: Config = {
       yellow: "amber",
       green: "#45CBC2",
       hardgreen: "#064247",
+      softgreen: "#288E87"
     },
     extend: {
       backgroundImage: {
