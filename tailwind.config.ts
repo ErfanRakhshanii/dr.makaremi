@@ -16,7 +16,9 @@ const config: Config = {
       yellow: "amber",
       green: "#45CBC2",
       hardgreen: "#064247",
-      softgreen: "#288E87"
+      softgreen: "#288E87",
+      verysoftgreen: "#D6F3F1",
+      darkblue: "#0D0630"
     },
     extend: {
       backgroundImage: {

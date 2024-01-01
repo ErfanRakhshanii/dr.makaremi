@@ -4,7 +4,10 @@ import sliderFrame1 from "../../public/Assets/Images/LandingPage/Body0/SliderFra
 import doctorMakaremi from "../../public/Assets/Images/LandingPage/Body2/DoctorMakaremi.webp";
 import line0 from "../../public/Assets/Images/LandingPage/Body2/Line0.webp";
 import line1 from "../../public/Assets/Images/LandingPage/Body2/Line1.webp";
-import Body1Cards from "../LandingPage/LandingDatas";
+import girl from "../../public/Assets/Images/LandingPage/Body3/Girl.webp";
+import warning from "../../public/Assets/Images/LandingPage/Body3/Warning.webp";
+import Body1Cards from "./Body1Datas";
+import Body3Cards from "./Body3Datas";
 import CountUp from "react-countup";
 
 export default function LandingPage() {
@@ -67,6 +70,40 @@ export default function LandingPage() {
         </div>
       </div>
       {/* //////////Body3///////// */}
+      <div className="w-[1224px] h-[522px] flex flex-col justify-center gap-[76px] ">
+        <div className="w-[190px] h-[36px] flex gap-[8px] ">
+          <Image src={line0} alt="Logo" />
+          <p className="text-[24px] font-bold text-hardgreen">
+            روز های کاری مطب
+          </p>
+        </div>
+        <div className="w-full h-[362px] flex gap-[42px] ">
+          <div className="w-[454px] h-[298px]">
+            <Image src={girl} alt="Logo" />
+          </div>
+          <div className="w-[742px] h-[216px] flex flex-col self-end gap-[16px] ">
+            <div className="w-full h-[176px] flex gap-[16px] ">
+              {Body3Cards.map((item, index) => {
+                return (
+                  <div className="w-[136px] h-[176px] flex items-center justify-center rounded-[12.55px] bg-verysoftgreen">
+                    <div className="w-[107px] h-[98px] flex flex-col items-center justify-between text-[16px] font-normal text-darkblue ">
+                      <p>{item.days}</p>
+                      <p>{item.time}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="w-[468px] h-[24px] flex items-center gap-[16px] ">
+              <Image src={warning} alt="Logo" />
+              <p className="text-[16px] font-normal text-hardgreen">
+                روزهای کاری ثابت نیستند و بر اساس شرایط ممکن است تغییر کنند.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* //////////Body4///////// */}
     </main>
   );
 }
