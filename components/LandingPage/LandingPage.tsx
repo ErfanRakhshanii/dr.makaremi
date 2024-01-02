@@ -12,8 +12,6 @@ import arrow0 from "../../public/Assets/Images/LandingPage/Body6/Arrow.webp";
 import Body1Cards from "./Body1Datas";
 import Body3Cards from "./Body3Datas";
 import CountUp from "react-countup";
-import Body4Carousel from "./Body4Carousel";
-import Body5Cards from "./Body5Datas";
 import { useState } from "react";
 import Body6Cards from "./Body6Datas";
 
@@ -320,7 +318,7 @@ export default function LandingPage() {
         </div>
       </div>
       {/* //////////Body9///////// */}
-      <div className="w-full h-[385px]"></div>
+      <div className="w-full h-[385px] bg-red"></div>
       {/* //////////Body10///////// */}
       <div className="w-full h-[566px] flex items-end justify-center ">
         <div className="w-[860px] h-[482px] flex flex-col items-center gap-[43px] ">
