@@ -10,7 +10,6 @@ const config: Config = {
       blue: "blue",
       black: "black",
       white: "white",
-      gray: "trueGray", 
       indigo: "indigo",
       red: "red",
       yellow: "amber",
@@ -18,19 +17,20 @@ const config: Config = {
       hardgreen: "#064247",
       softgreen: "#288E87",
       verysoftgreen: "#D6F3F1",
-      darkblue: "#0D0630"
+      darkblue: "#0D0630",
+      gray: "#CBCBCB",
     },
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
-        "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
         sansR: ["var(--sansR)", "serif"],
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar")],
 };
 export default config;
