@@ -1,9 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import makaremiLogo from "../../public/Assets/Images/Header/MakaremiLogo.webp";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
-  return ( 
+  const pathname = usePathname();
+  return (
     <main className="max-w-[1223px] w-full h-[107px]  flex items-end justify-center fixed z-50">
       <div className="w-full h-[75px] flex items-center gap-[155.5px] ">
         {/* //////////Right////////// */}
@@ -16,22 +18,42 @@ export default function Header() {
         <ul className="w-695 h-full flex items-center gap-[8px] text-[16px] font-medium">
           <Link
             href={"/"}
-            className=" w-[61px] h-[44px] flex items-center justify-center text-[16px] text-white font-medium cursor-pointer duration-500 rounded-[8px] hover:bg-green"
+            className={
+              pathname === "/"
+                ? "w-[61px] h-[44px] flex items-center justify-center bg-green text-[16px] text-white font-medium cursor-pointer duration-500 rounded-[8px] "
+                : "w-[61px] h-[44px] flex items-center justify-center  text-[16px] text-white font-medium cursor-pointer duration-500 rounded-[8px] hover:bg-green"
+            }
           >
             <li>خانه</li>
           </Link>
-          <li className="w-[134px] h-[44px] flex items-center justify-center text-[16px] text-white font-medium cursor-pointer duration-500 hover:bg-green rounded-[8px]">
-            رضایت مراجعان
-          </li>
+          <Link
+            href={"/clientSatisfaction"}
+            className={
+              pathname === "/clientSatisfaction"
+                ? "w-[134px] h-[44px] flex items-center justify-center bg-green text-[16px] text-white font-medium cursor-pointer duration-500  rounded-[8px]"
+                : "w-[134px] h-[44px] flex items-center justify-center text-[16px] text-white font-medium cursor-pointer duration-500 hover:bg-green rounded-[8px]"
+            }
+          >
+            <li>رضایت مراجعان</li>
+          </Link>
           <li className="w-[168px] h-[44px] flex items-center justify-center text-[16px] text-white font-medium cursor-pointer duration-500 hover:bg-green rounded-[8px]">
             بیمه‌های طرف قرارداد
           </li>
+
           <li className="w-[104px] h-[44px] flex items-center justify-center text-[16px] text-white font-medium cursor-pointer duration-500 hover:bg-green rounded-[8px]">
             تماس با ما
           </li>
-          <li className="w-[62px] h-[44px] flex items-center justify-center text-[16px] text-white font-medium cursor-pointer duration-500 hover:bg-green rounded-[8px]">
-            بلاگ
-          </li>
+          <Link
+            href={"/blog"}
+            className={
+              pathname === "/blog"
+                ? "w-[62px] h-[44px] flex items-center justify-center bg-green text-[16px] text-white font-medium cursor-pointer duration-500  rounded-[8px]"
+                : "w-[62px] h-[44px] flex items-center justify-center text-[16px] text-white font-medium cursor-pointer duration-500 hover:bg-green rounded-[8px]"
+            }
+          >
+            <li>بلاگ</li>
+          </Link>
+
           <li className="w-[128px] h-[44px] flex items-center justify-center text-[16px] text-white font-medium cursor-pointer duration-500 hover:bg-green rounded-[8px]">
             ورود / عضویت
           </li>

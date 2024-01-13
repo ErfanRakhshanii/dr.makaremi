@@ -19,6 +19,8 @@ const config: Config = {
       verysoftgreen: "#D6F3F1",
       darkblue: "#0D0630",
       gray: "#CBCBCB",
+      purple: "#3F1EE3",
+      hardpurple: "190D5D",
     },
     extend: {
       backgroundImage: {
