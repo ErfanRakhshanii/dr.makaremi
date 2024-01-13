@@ -1,19 +1,23 @@
 "use client";
 import Image from "next/image";
-import sliderFrame1 from "../../public/Assets/Images/LandingPage/Body0/SliderFrame1.webp";
 import doctorMakaremi from "../../public/Assets/Images/LandingPage/Body2/DoctorMakaremi.webp";
 import line0 from "../../public/Assets/Images/LandingPage/Body2/Line0.webp";
-import line1 from "../../public/Assets/Images/LandingPage/Body2/Line1.webp";
+import line1 from "../../public/Assets/Images/LandingPage/Body2/Line1.png";
 import girl from "../../public/Assets/Images/LandingPage/Body3/Girl.webp";
 import warning from "../../public/Assets/Images/LandingPage/Body3/Warning.webp";
 import arrow from "../../public/Assets/Images/LandingPage/Body5/Arrow.webp";
 import doctor from "../../public/Assets/Images/LandingPage/Body5/Doctor.webp";
+import line from "../../public/Assets/Images/LandingPage/Body5/Line.png";
 import arrow0 from "../../public/Assets/Images/LandingPage/Body6/Arrow.webp";
 import Body1Cards from "./Body1Datas";
 import Body3Cards from "./Body3Datas";
 import CountUp from "react-countup";
 import { useState } from "react";
 import Body6Cards from "./Body6Datas";
+import Body4Carousel from "./Body4Carousel";
+import Body0Carousel from "./Body0Carousel";
+import Body9Carousel from "./Body9Carousel";
+import { useRouter } from "next/navigation";
 
 export default function LandingPage() {
   const [Body5DropDown0, setBody5DropDown0] = useState(false);
@@ -21,16 +25,16 @@ export default function LandingPage() {
   const [Body5DropDown2, setBody5DropDown2] = useState(false);
   const [Body5DropDown3, setBody5DropDown3] = useState(false);
   return (
-    <main className="max-w-[1440px] w-full h-[5627px] flex flex-col items-center">
+    <main className="max-w-[1440px] w-full h-[5242px] flex flex-col items-center">
       {/* //////////Body0////////// */}
-      <div className="w-full h-[719px] bg-blue">
-        <Image src={sliderFrame1} alt="Slider" />
+      <div className="w-full h-[719px] ">
+        <Body0Carousel />
       </div>
       {/* //////////Body1////////// */}
       <div className="w-full h-[222px] flex items-center justify-center gap-[32px] my-[-20px]">
-        {Body1Cards.map((item, index) => {
+        {Body1Cards.map((item) => {
           return (
-            <div className="w-[222px] h-full bg-[#fff] flex flex-col items-center justify-center rounded-[12.322px] z-20">
+            <div className="w-[222px] h-full flex flex-col items-center justify-center bg-white shadow-[0px_30px_60px_0px_rgb(37,37,37,0.15)]  rounded-[12.322px] z-20">
               <Image src={item.logo} alt="Logo" width={32} height={32} />
               <div className="w-full h-[8px]"></div>
               <div className="w-full h-[24px] flex items-center justify-center text-[16px] font-bold text-hardgreen">
@@ -57,7 +61,7 @@ export default function LandingPage() {
             <span className="w-[144px] h-[30px] flex justify-end items-center text-[20px] font-bold text-softgreen">
               دکتر علی مکارمی
             </span>
-            <div className="w-[617px] h-[215px] flex items-center justify-center self-end rounded-[15.332px] bg-red">
+            <div className="w-[617px] h-[215px] flex items-center justify-center self-end shadow-[-2px_16px_26px_rgb(199,182,182,0.20)] rounded-[15.332px]  ">
               <ul className="list-disc list-inside w-[585.496px] h-[183.028px] flex flex-col gap-[24px] text-[16px] font-normal text-hardgreen">
                 <p>تجارب و تحصیلات</p>
                 <li>
@@ -74,13 +78,13 @@ export default function LandingPage() {
           </div>
           <Image src={doctorMakaremi} alt="Logo" />
         </div>
-        <div className="w-full h-[60px] flex items-end ">
+        <div className="w-full h-[60px]  mt-[-15px]">
           <Image src={line1} alt="Logo" />
         </div>
       </div>
       {/* //////////Body3///////// */}
       <div className="w-[1224px] h-[522px] flex flex-col justify-center gap-[76px]">
-        <div className="w-[190px] h-[36px] flex gap-[8px] ">
+        <div className="w-[99.3%] h-[36px] flex self-end gap-[8px] ">
           <Image src={line0} alt="Logo" />
           <p className="text-[24px] font-bold text-hardgreen">
             روز های کاری مطب
@@ -94,7 +98,7 @@ export default function LandingPage() {
             <div className="w-full h-[176px] flex gap-[16px] ">
               {Body3Cards.map((item, index) => {
                 return (
-                  <div className="w-[136px] h-[176px] flex items-center justify-center rounded-[12.55px] bg-verysoftgreen">
+                  <div className="w-[136px] h-[176px] flex items-center justify-center bg-verysoftgreen rounded-[12.55px] shadow-[ 0px_4px_9px_0px_rgb(0, 0, 0, 0.02), 0px_16px_16px_0px_rgb(0, 0, 0, 0.02), 0px_37px_22px_0px_rgb(0, 0, 0, 0.01), 0px_66px_26px_0px_rgb(0, 0, 0, 0.00), 0px_103px_29px_0px_rgb(0, 0, 0, 0.00)]">
                     <div className="w-[107px] h-[98px] flex flex-col items-center justify-between text-[16px] font-normal text-darkblue ">
                       <p>{item.days}</p>
                       <p>{item.time}</p>
@@ -115,107 +119,144 @@ export default function LandingPage() {
       </div>
       {/* //////////Body4///////// */}
       <div className="w-[1247px] h-[383px] flex flex-col justify-end gap-[52px]">
-        <div className="w-[214px] h-[36px] flex gap-[8px]">
+        <div className="w-[98.5%] h-[36px] flex self-end gap-[8px] ">
           <Image src={line0} alt="Logo" />
           <p className="text-[24px] font-bold text-hardgreen">
             بیمه‌های طرف قرارداد
           </p>
         </div>
-        <div className="w-full h-[231px] flex items-center bg-blue">
-          {/* <Body4Carousel/> */}
+        <div className="w-full h-[231px] flex gap-[24px]">
+          <div className="w-[0px]"></div>
+          <Body4Carousel />
         </div>
       </div>
       {/* //////////Body5///////// */}
-      <div className="w-full h-[620px]  flex items-end" >
+      <div className="w-full h-[620px]  flex items-end bg-[url('../public/Assets/Images/LandingPage/Body5/Vector.png')]">
         <div className="w-full h-[580px] flex  ">
-          <div className="w-[101px] h-full"></div>
-          <div className="w-[498px] h-[361px] flex flex-col gap-[32px] ">
-            <div className="w-full h-[36px] flex gap-[8px] ">
+          <div className="w-[60px] h-full"></div>
+          <div className="w-[506px] h-[361px] flex flex-col gap-[32px]">
+            <div className="w-[96.2%] h-[36px] flex self-end gap-[8px]  relative left-[9px] ">
               <Image src={line0} alt="Logo" />
               <p className="text-[24px] font-bold text-hardgreen">
                 سوالات متداول
               </p>
             </div>
-            <div className="w-full h-[288px] ">
+            <div className="w-full h-[288px] flex flex-col items-end rounded-[15px] bg-white">
               <div
-                className="w-full h-[72px] flex items-center justify-center gap-[64px] cursor-pointer bg-red"
+                className="w-[498px] h-[72px] flex flex-col items-center justify-center cursor-pointer "
                 onClick={() => {
-                  Body5DropDown0 === false
-                    ? setBody5DropDown0(true)
-                    : setBody5DropDown0(false);
+                  if (!Body5DropDown0) {
+                    setBody5DropDown0(true);
+                    setBody5DropDown1(false);
+                    setBody5DropDown2(false);
+                    setBody5DropDown3(false);
+                  } else {
+                    setBody5DropDown0(false);
+                  }
                 }}
               >
-                <span>بعد از عمل لازک چشم چه علایم موقتی پدیدار می شود؟</span>
-                <Image
-                  src={arrow}
-                  alt="Logo"
-                  style={{ rotate: Body5DropDown0 === true ? "270deg" : "" }}
-                  className="duration-500"
-                />
+                <div className="w-full h-[71px] flex items-center justify-center gap-[64px] ">
+                  <span>بعد از عمل لازک چشم چه علایم موقتی پدیدار می شود؟</span>
+                  <Image
+                    src={arrow}
+                    alt="Logo"
+                    style={{ rotate: Body5DropDown0 === true ? "270deg" : "" }}
+                    className="duration-500"
+                  />
+                </div>
+                <div className="w-[417px] h-[1px] bg-gray" />
               </div>
+
               {Body5DropDown0 && (
                 <div className="w-full h-[45px] flex items-center justify-center bg-white">
                   بعدش تا یک هفته جق ممنوع
                 </div>
               )}
               <div
-                className="w-full h-[72px] flex items-center justify-center gap-[64px] cursor-pointer"
+                className="w-[498px] h-[72px] flex flex-col items-center justify-center cursor-pointer "
                 onClick={() => {
-                  Body5DropDown1 === false
-                    ? setBody5DropDown1(true)
-                    : setBody5DropDown1(false);
+                  if (!Body5DropDown1) {
+                    setBody5DropDown1(true);
+                    setBody5DropDown0(false);
+                    setBody5DropDown2(false);
+                    setBody5DropDown3(false);
+                  } else {
+                    setBody5DropDown1(false);
+                  }
                 }}
               >
-                <span>بعد از عمل لازک چشم چه علایم موقتی پدیدار می شود؟</span>
-                <Image
-                  src={arrow}
-                  alt="Logo"
-                  style={{ rotate: Body5DropDown1 === true ? "270deg" : "" }}
-                  className="duration-500"
-                />
+                <div className="w-full h-[71px] flex items-center justify-center gap-[64px] ">
+                  <span>بعد از عمل لازک چشم چه علایم موقتی پدیدار می شود؟</span>
+                  <Image
+                    src={arrow}
+                    alt="Logo"
+                    style={{ rotate: Body5DropDown1 === true ? "270deg" : "" }}
+                    className="duration-500"
+                  />
+                </div>
+                <div className="w-[417px] h-[1px] bg-gray" />
               </div>
+
               {Body5DropDown1 && (
                 <div className="w-full h-[45px] flex items-center justify-center bg-white">
                   بعدش تا یک هفته جق ممنوع
                 </div>
               )}
               <div
-                className="w-full h-[72px] flex items-center justify-center gap-[64px] cursor-pointer"
+                className="w-[498px] h-[72px] flex flex-col items-center justify-center cursor-pointer "
                 onClick={() => {
-                  Body5DropDown2 === false
-                    ? setBody5DropDown2(true)
-                    : setBody5DropDown2(false);
+                  if (!Body5DropDown2) {
+                    setBody5DropDown2(true);
+                    setBody5DropDown0(false);
+                    setBody5DropDown1(false);
+                    setBody5DropDown3(false);
+                  } else {
+                    setBody5DropDown2(false);
+                  }
                 }}
               >
-                <span>بعد از عمل لازک چشم چه علایم موقتی پدیدار می شود؟</span>
-                <Image
-                  src={arrow}
-                  alt="Logo"
-                  style={{ rotate: Body5DropDown2 === true ? "270deg" : "" }}
-                  className="duration-500"
-                />
+                <div className="w-full h-[71px] flex items-center justify-center gap-[64px] ">
+                  <span>بعد از عمل لازک چشم چه علایم موقتی پدیدار می شود؟</span>
+                  <Image
+                    src={arrow}
+                    alt="Logo"
+                    style={{ rotate: Body5DropDown2 === true ? "270deg" : "" }}
+                    className="duration-500"
+                  />
+                </div>
+                <div className="w-[417px] h-[1px] bg-gray" />
               </div>
+
               {Body5DropDown2 && (
                 <div className="w-full h-[45px] flex items-center justify-center bg-white">
                   بعدش تا یک هفته جق ممنوع
                 </div>
               )}
               <div
-                className="w-full h-[72px] flex items-center justify-center gap-[64px] cursor-pointer"
+                className="w-[498px] h-[72px] flex flex-col items-center justify-center cursor-pointer "
                 onClick={() => {
-                  Body5DropDown3 === false
-                    ? setBody5DropDown3(true)
-                    : setBody5DropDown3(false);
+                  if (!Body5DropDown3) {
+                    setBody5DropDown3(true);
+                    setBody5DropDown0(false);
+                    setBody5DropDown1(false);
+                    setBody5DropDown2(false);
+                  } else {
+                    setBody5DropDown3(false);
+                  }
                 }}
               >
-                <span>بعد از عمل لازک چشم چه علایم موقتی پدیدار می شود؟</span>
-                <Image
-                  src={arrow}
-                  alt="Logo"
-                  style={{ rotate: Body5DropDown3 === true ? "270deg" : "" }}
-                  className="duration-500"
-                />
+                <div className="w-full h-[71px] flex items-center justify-center gap-[64px] ">
+                  <span>بعد از عمل لازک چشم چه علایم موقتی پدیدار می شود؟</span>
+                  <Image
+                    src={arrow}
+                    alt="Logo"
+                    style={{ rotate: Body5DropDown3 === true ? "270deg" : "" }}
+                    className="duration-500"
+                  />
+                </div>
+                <div className="w-[417px] h-[1px] bg-gray" />
               </div>
+
               {Body5DropDown3 && (
                 <div className="w-full h-[45px] flex items-center justify-center bg-white">
                   بعدش تا یک هفته جق ممنوع
@@ -231,7 +272,7 @@ export default function LandingPage() {
       </div>
       {/* //////////Body6///////// */}
       <div className="w-full h-[592px] flex flex-col justify-end items-center ">
-        <div className="w-full h-[36px] flex gap-[8px] ">
+        <div className="w-[89.7%] h-[36px]  flex gap-[8px] ">
           <Image src={line0} alt="Logo" />
           <span className="text-[24px] font-bold text-hardgreen">
             بلاگ و مقالات
@@ -249,7 +290,7 @@ export default function LandingPage() {
         <div className="w-[1224px] h-[461px] flex  gap-[79px]">
           {Body6Cards.map((item, index) => {
             return (
-              <div className="w-[347px] h-[461px] flex flex-col items-center gap-[12.5px] rounded-[10px] bg-red cursor-pointer">
+              <div className="w-[347px] h-[461px] flex flex-col items-center gap-[12.5px] rounded-[10px] shadow-[0px_4px_10px_0px_rgb(0,0,0,0.07)] cursor-pointer">
                 <div className="w-[346px] h-[346px]  flex items-center justify-center">
                   <Image
                     src={item.mainFrame}
@@ -300,7 +341,7 @@ export default function LandingPage() {
               </span>
             </div>
           </div>
-          <button className="w-[255px] h-[92px] flex items-center justify-center rounded-[10px] bg-green relative right-[1073px]">
+          <button className=" w-[255px] h-[92px] flex items-center justify-center rounded-[10px] bg-green relative right-[1073px] duration-500 hover:shadow-[0px_30px_60px_0px_rgb(36,37,37,0.15)] ">
             <span className="w-[131px] h-[60px] text-[20px] font-normal text-hardgreen">
               رزرو نوبت آنلاین در وب اپلیکیشن
             </span>
@@ -318,7 +359,9 @@ export default function LandingPage() {
         </div>
       </div>
       {/* //////////Body9///////// */}
-      <div className="w-full h-[385px] bg-red"></div>
+      <div className="w-[1104px] h-[258px] mt-[85px]">
+        <Body9Carousel />
+      </div>
       {/* //////////Body10///////// */}
       <div className="w-full h-[566px] flex items-end justify-center ">
         <div className="w-[860px] h-[482px] flex flex-col items-center gap-[43px] ">
