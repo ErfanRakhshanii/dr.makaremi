@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import "../globals.css";
-import localFont from "next/font/local";
 import { LayoutProvider } from "./layoutprovider";
+import localFont from "next/font/local";
+import { Providers } from "@/components/Redux/Provider";
 const sansR = localFont({
   src: "../font/IRANSansXRegular.ttf",
   display: "swap",
@@ -20,7 +21,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={sansR.className}>
       <body>
-        <LayoutProvider>{children}</LayoutProvider>
+        <LayoutProvider>
+          <Providers>{children}</Providers>
+        </LayoutProvider>
       </body>
     </html>
   );
