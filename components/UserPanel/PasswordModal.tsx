@@ -50,6 +50,28 @@ export default function PasswordModal({
           تایید
         </div>
       </div>
+      <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        open={open}
+        onClose={handleClose}
+        closeAfterTransition
+        slots={{ backdrop: Backdrop }}
+        slotProps={{
+          backdrop: {
+            timeout: 500,
+          },
+        }}
+      >
+        <Fade in={open}>
+          <Box sx={style}>
+            <Image src={TaskAlt} alt="Task Alt" />
+            <p className="text-base text-[#064247] font-bold">
+              رمز عبور موقت برای شما پیامک شد
+            </p>
+          </Box>
+        </Fade>
+      </Modal>
     </div>
   );
 }
