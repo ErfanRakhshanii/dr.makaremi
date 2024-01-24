@@ -25,7 +25,6 @@ export default function Login() {
         "https://drmakaremi.v1r.ir/api/login",
         {
           phone_number: phoneNumber,
-          password: password,
         },
         {
           headers: {
@@ -36,8 +35,10 @@ export default function Login() {
 
       const data = await response.data;
       console.log(data);
+      alert("ورود با موفقیت انجام شد");
     } catch (error) {
       console.error("Error:", error);
+      alert("یه جا ریدی! برو ببین کجاست");
     }
   };
 
@@ -255,7 +256,7 @@ export default function Login() {
                   className="h-full w-[614px] rounded-[4.73px] border-[#CBCBCB] border-[1.5px] border-r-0 rounded-r-none outline-none text-left p-5"
                 />
               </div>
-              <div className="h-[66px] w-full flex items-center justify-center">
+              {/* <div className="h-[66px] w-full flex items-center justify-center">
                 <div className="h-full w-[126px] flex flex-col items-start justify-center gap-2 rounded-[4.73px] border-[#CBCBCB] border-[1.5px] border-l-0 rounded-l-none">
                   <p className="text-xs font-semibold mr-2 text-[#0D0630]">
                     رمز عبور
@@ -275,7 +276,7 @@ export default function Login() {
                   }}
                   className="h-full w-[614px] rounded-[4.73px] border-[#CBCBCB] border-[1.5px] border-r-0 rounded-r-none outline-none text-left p-5"
                 />
-              </div>
+              </div> */}
               <div className="w-[740px] h-[21px] flex items-center justify-between">
                 <div className="w-[194px] h-full flex gap-1">
                   <p className="text-sm">حساب کاربری ندارید؟</p>
