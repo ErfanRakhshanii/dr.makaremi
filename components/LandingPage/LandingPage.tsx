@@ -7,29 +7,73 @@ import girl from "../../public/Assets/Images/LandingPage/Body3/Girl.webp";
 import warning from "../../public/Assets/Images/LandingPage/Body3/Warning.webp";
 import arrow from "../../public/Assets/Images/LandingPage/Body5/Arrow.webp";
 import doctor from "../../public/Assets/Images/LandingPage/Body5/Doctor.webp";
-import line from "../../public/Assets/Images/LandingPage/Body5/Line.png";
-import arrow0 from "../../public/Assets/Images/LandingPage/Body6/Arrow.webp";
+import arrow0 from "../../public/Assets/Images/LandingPage/Body6/Arrow.webp"
+import line from "../../public/Assets/Images/LandingPage/Body6/Line0.webp"
 import Body1Cards from "./Body1Datas";
 import Body3Cards from "./Body3Datas";
 import CountUp from "react-countup";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Body6Cards from "./Body6Datas";
 import Body4Carousel from "./Body4Carousel";
-import Body0Carousel from "./Body0Carousel";
+import Body0Carousel from "./Body0/Body0Carousel";
 import Body9Carousel from "./Body9Carousel";
-import { useRouter } from "next/navigation";
+import axios from "axios";
+import jalaliMoment from "jalali-moment";
+import { useParams } from "next/navigation";
+import Link from "next/link";
+import LandingpageBody0 from "./Body0/Body0";
+
 
 export default function LandingPage() {
   const [Body5DropDown0, setBody5DropDown0] = useState(false);
   const [Body5DropDown1, setBody5DropDown1] = useState(false);
   const [Body5DropDown2, setBody5DropDown2] = useState(false);
   const [Body5DropDown3, setBody5DropDown3] = useState(false);
+  const [body3Data, setBody3Data] = useState<Body3DataTypes[] | null>(null);
+  const [body5Data, setBody5Data] = useState<Body5DataTypes[] | null>(null);
+
+  interface Body3DataTypes {
+    date: string;
+  }
+  interface Body5DataTypes {
+    question: string,
+    answer: string
+  }
+
+
+  useEffect(() => {
+    const FetchBody3Data = async () => {
+      try {
+        const Response = await axios.get(
+          "https://drmakaremi.v1r.ir/api/work-days"
+        );
+        const JsonData = await Response.data;
+        setBody3Data(JsonData.data);
+      } catch (error) {
+        console.error("Body3 fetching data:", error);
+      }
+    };
+    FetchBody3Data();
+  }, []);
+  useEffect(() => {
+    const FetchBody5Data = async () => {
+      try {
+        const Response = await axios.get(
+          "https://drmakaremi.v1r.ir/api/questions"
+        );
+        const JsonData = await Response.data;
+        setBody5Data(JsonData.data);
+      } catch (error) {
+        console.error("Body5 fetching data:", error);
+      }
+    };
+    FetchBody5Data();
+  }, []);
+ 
   return (
     <main className="max-w-[1440px] w-full h-[5242px] flex flex-col items-center">
       {/* //////////Body0////////// */}
-      <div className="w-full h-[719px] ">
-        <Body0Carousel />
-      </div>
+     <LandingpageBody0/>
       {/* //////////Body1////////// */}
       <div className="w-full h-[222px] flex items-center justify-center gap-[32px] my-[-20px]">
         {Body1Cards.map((item) => {
@@ -43,7 +87,7 @@ export default function LandingPage() {
               <CountUp
                 enableScrollSpy
                 end={item.number}
-                duration={1.5}
+                duration={1.7}
                 className="text-[56px] font-bold text-[#190C5D]"
               />
             </div>
@@ -95,18 +139,31 @@ export default function LandingPage() {
             <Image src={girl} alt="Logo" />
           </div>
           <div className="w-[742px] h-full flex flex-col justify-end gap-[16px]">
-            <div className="w-full h-[176px] flex gap-[16px] ">
-              {Body3Cards.map((item, index) => {
-                return (
-                  <div className="w-[136px] h-[176px] flex items-center justify-center bg-verysoftgreen rounded-[12.55px] shadow-[ 0px_4px_9px_0px_rgb(0, 0, 0, 0.02), 0px_16px_16px_0px_rgb(0, 0, 0, 0.02), 0px_37px_22px_0px_rgb(0, 0, 0, 0.01), 0px_66px_26px_0px_rgb(0, 0, 0, 0.00), 0px_103px_29px_0px_rgb(0, 0, 0, 0.00)]">
-                    <div className="w-[107px] h-[98px] flex flex-col items-center justify-between text-[16px] font-normal text-darkblue ">
-                      <p>{item.days}</p>
-                      <p>{item.time}</p>
+            {body3Data ? (
+              <div className="w-full h-[176px] flex gap-[16px]">
+                {body3Data.map((item, index) => {
+                  const iranianDate = jalaliMoment(item.date).locale('fa').format(
+                    "jYYYY/jM/jD"
+                  );
+                  
+                  const dayName = jalaliMoment(item.date).locale('fa').format('dddd'); 
+                  return (
+                    <div
+                      key={index}
+                      className="w-[136px] h-[176px] flex items-center justify-center bg-verysoftgreen rounded-[12.55px] shadow-[ 0px_4px_9px_0px_rgb(0, 0, 0, 0.02), 0px_16px_16px_0px_rgb(0, 0, 0, 0.02), 0px_37px_22px_0px_rgb(0, 0, 0, 0.01), 0px_66px_26px_0px_rgb(0, 0, 0, 0.00), 0px_103px_29px_0px_rgb(0, 0, 0, 0.00)]"
+                    >
+                      <div className="w-[107px] h-[98px] flex flex-col items-center justify-between text-[16px] font-normal text-darkblue ">
+                        <p>{dayName}</p>
+                        <p>{iranianDate}</p>
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
-            </div>
+                  );
+                })}
+              </div>
+            ) : (
+              ""
+            )}
+
             <div className="w-[468px] h-[24px] flex items-center gap-[16px] ">
               <Image src={warning} alt="Logo" />
               <p className="text-[16px] font-normal text-hardgreen">
@@ -271,9 +328,10 @@ export default function LandingPage() {
         </div>
       </div>
       {/* //////////Body6///////// */}
+      <div>
       <div className="w-full h-[592px] flex flex-col justify-end items-center ">
         <div className="w-[89.7%] h-[36px]  flex gap-[8px] ">
-          <Image src={line0} alt="Logo" />
+          <Image src={line} alt="Logo" />
           <span className="text-[24px] font-bold text-hardgreen">
             بلاگ و مقالات
           </span>
@@ -290,43 +348,49 @@ export default function LandingPage() {
         <div className="w-[1224px] h-[461px] flex  gap-[79px]">
           {Body6Cards.map((item, index) => {
             return (
-              <div className="w-[347px] h-[461px] flex flex-col items-center gap-[12.5px] rounded-[10px] shadow-[0px_4px_10px_0px_rgb(0,0,0,0.07)] cursor-pointer">
-                <div className="w-[346px] h-[346px]  flex items-center justify-center">
-                  <Image
-                    src={item.mainFrame}
-                    alt="Logo"
-                    className="w-[313px] h-[313px] rounded-[10px]"
-                  />
-                </div>
-                <div className="w-[327px] h-[101px] flex flex-col gap-[24px] ">
-                  <div className="w-full h-[41px] flex flex-col">
-                    <span className="text-[16px] font-bold text-hardgreen">
-                      {item.subject}
-                    </span>
-                    <span className="text-[12px] font-light text-darkblue">
-                      {item.summary}
-                    </span>
+              <Link href={`/${item.id}`}>
+                <div
+                  key={index}
+                  className="w-[347px] h-[461px] flex flex-col items-center gap-[12.5px] rounded-[10px] shadow-[0px_4px_10px_0px_rgb(0,0,0,0.07)] cursor-pointer"
+                >
+                  <div className="w-[346px] h-[346px]  flex items-center justify-center">
+                    <Image
+                      src={item.mainFrame}
+                      alt="Logo"
+                      className="w-[313px] h-[313px] rounded-[10px]"
+                    />
                   </div>
-                  <div className="w-[326px] h-[36px] flex items-center gap-[122px]">
-                    <div className="w-[137px] h-full flex items-center gap-[8px]">
-                      <Image src={item.timerLogo} alt="Logo" />
-                      <span className="text-[12px] font-medium text-[#757575]">
-                        {item.time}
+                  <div className="w-[327px] h-[101px] flex flex-col gap-[24px] ">
+                    <div className="w-full h-[41px] flex flex-col">
+                      <span className="text-[16px] font-bold text-hardgreen">
+                        {item.subject}
+                      </span>
+                      <span className="text-[12px] font-light text-darkblue">
+                        {item.summary}
                       </span>
                     </div>
-                    <div className="w-[67px] h-full flex items-center gap-[8px]">
-                      <Image src={item.notifLogo} alt="Logo" />
-                      <span className="text-[12px] font-medium text-[#757575]">
-                        {item.notif}
-                      </span>
+                    <div className="w-[326px] h-[36px] flex items-center gap-[122px]">
+                      <div className="w-[137px] h-full flex items-center gap-[8px]">
+                        <Image src={item.timerLogo} alt="Logo" />
+                        <span className="text-[12px] font-medium text-[#757575]">
+                          {item.time}
+                        </span>
+                      </div>
+                      <div className="w-[67px] h-full flex items-center gap-[8px]">
+                        <Image src={item.notifLogo} alt="Logo" />
+                        <span className="text-[12px] font-medium text-[#757575]">
+                          {item.notif}
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>
       </div>
+    </div>
       {/* //////////Body7///////// */}
       <div className="w-full h-[313px] flex items-end ">
         <div className="w-full h-[202px] flex items-center ">

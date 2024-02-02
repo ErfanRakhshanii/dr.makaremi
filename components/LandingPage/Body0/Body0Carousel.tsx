@@ -1,9 +1,9 @@
 import Image from "next/image";
-import sliderFrame0 from "../../public/Assets/Images/LandingPage/Body0/SliderFrame0.webp";
-import sliderFrame1 from "../../public/Assets/Images/LandingPage/Body0/SliderFrame1.webp";
-import sliderFrame2 from "../../public/Assets/Images/LandingPage/Body0/SliderFrame2.webp";
-import sliderFrame3 from "../../public/Assets/Images/LandingPage/Body0/SliderFrame3.webp";
-import eye from "../../public/Assets/Images/LandingPage/Body0/eye.png";
+import sliderFrame0 from "../../../public/Assets/Images/LandingPage/Body0/SliderFrame0.png";
+import sliderFrame1 from "../../../public/Assets/Images/LandingPage/Body0/SliderFrame1.png";
+import sliderFrame2 from "../../../public/Assets/Images/LandingPage/Body0/SliderFrame2.png";
+import sliderFrame3 from "../../../public/Assets/Images/LandingPage/Body0/SliderFrame3.png";
+import eye from "../../../public/Assets/Images/LandingPage/Body0/eye.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
