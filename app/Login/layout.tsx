@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "../globals.css";
-import { LayoutProvider } from "./layoutprovider";
 import localFont from "next/font/local";
 import { Providers } from "@/components/Redux/Provider";
+import UserPanelHeader from "@/components/UserPanel/UserPanelHeader";
 const sansR = localFont({
   src: "../font/IRANSansXRegular.ttf",
   display: "swap",
@@ -21,9 +21,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={sansR.className}>
       <body>
-        <LayoutProvider>
-          <Providers>{children}</Providers>
-        </LayoutProvider>
+        <Providers>
+          <UserPanelHeader />
+          {children}
+        </Providers>
       </body>
     </html>
   );
