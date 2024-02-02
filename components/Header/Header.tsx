@@ -1,13 +1,29 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import makaremiLogo from "../../public/Assets/Images/Header/MakaremiLogo.webp";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function Header() {
   const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
+
+  const handleScroll = () => {
+    const isScrolled = window.scrollY > 0;
+    setScrolled(isScrolled);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <main className="max-w-[1223px] w-full h-[107px]  flex items-end justify-center fixed z-50">
-      <div className="w-full h-[75px] flex items-center gap-[155.5px] ">
+    <main className={`max-w-[1440px] w-full h-[107px] flex items-end justify-center fixed duration-500 z-50 ${scrolled ? "flex items-center justify-center bg-white" : ""}`}  >
+      <div className="max-w-[1223px] w-full h-[75px] flex items-center gap-[155.5px] ">
         {/* //////////Right////////// */}
         <div className="w-68px h-full">
           <Link href={"/"}>
@@ -20,7 +36,7 @@ export default function Header() {
             href={"/"}
             className={
               pathname === "/"
-                ? "w-[61px] h-[44px] flex items-center justify-center bg-green text-[16px] text-white font-medium cursor-pointer duration-500 rounded-[8px] "
+                ? "w-[61px] h-[44px] flex items-center justify-center bg-green text-[16px] text-white font-medium cursor-pointer duration-500 rounded-[8px]"
                 : "w-[61px] h-[44px] flex items-center justify-center  text-[16px] text-white font-medium cursor-pointer duration-500 rounded-[8px] hover:bg-green"
             }
           >

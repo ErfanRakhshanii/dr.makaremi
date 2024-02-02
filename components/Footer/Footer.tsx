@@ -10,7 +10,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <main className="max-w-[1440px] w-full h-[385px] flex items-center justify-center bg-cover bg-center  bg-[url('../public/Assets/Images/Footer/FooterBackGround.webp')] text-white " style={{backgroundImage: `${footerBackGround}`}}>
+    <main className="max-w-[1440px] w-full h-[385px] flex items-center justify-center bg-cover bg-center  bg-[url('../public/Assets/Images/Footer/FooterBackGround.webp')] text-white " >
       <div className="max-w-[1223px] w-full h-[291px] flex justify-between ">
         {/* //////////Right////////// */}
         <div className="w-[428px] h-[262px] flex flex-col gap-[54px]">
